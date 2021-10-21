@@ -70,6 +70,7 @@
                                 </div>
                             </li>
                         @endguest
+                        <p class="nav-item nav-link">{{$current_date = date('D, Y-m-d');}}</p>
                     </ul>
                 </div>
             </div>
@@ -80,4 +81,13 @@
         </main>
     </div>
 </body>
+
+<footer>
+    <div class="container">
+        <div class="footer" style="">
+            <p class="nav-item nav-link text-center">Made by Keypedia CEO-ES-2021</p>
+        </div>
+    </div>
+
+</footer>
 </html>
