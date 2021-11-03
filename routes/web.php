@@ -27,5 +27,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index_category
 
 Route::get('/category/{id}', [ShopController::class, 'category']);
 
+//Delete
+
 Route::delete('/delete/{id}', [ProductController::class, 'destroy']);
+
+//Update
+
+Route::get('/update/{id}', [ProductController::class, 'edit']);
+
+Route::patch('/update-product/{id}', [ProductController::class, 'update'])->name('update-keyboard');
 

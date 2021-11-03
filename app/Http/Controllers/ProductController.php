@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -58,8 +60,49 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
-        $product = Product::where('id', $id);
-        return view('update', compact('product'));
+        $categories = Category::all();
+        $product = Product::where('id', $id)
+            ->first();
+        return view('update', compact('product','categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        if($request->hasFile('image'))
+        {
+            $destination = '/storage/'.$request->image;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = $request->product_name.'.'.$extension;
+            $file->move('storage/', $filename);
+            Product::where('id',$id)->update([
+                'name' => $request->product_name,
+                'category_id' => $request->category,
+                'price' => $request->price,
+                'description' => $request->description,
+                'image' => $filename
+            ]);
+            
+
+        }
+        else{
+            Product::where('id',$id)->update([
+                'name' => $request->product_name,
+                'category_id' => $request->category,
+                'price' => $request->price,
+                'description' => $request->description
+            ]);
+        }
+        
+
+
+
+        return redirect('/home');
+        
     }
 
     /**
@@ -69,10 +112,6 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
