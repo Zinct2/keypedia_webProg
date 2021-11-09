@@ -1,0 +1,4 @@
+@extends('layouts')
+
+@yield('content')
+
