@@ -13,7 +13,7 @@
                     <img class="card-img-top" src="{{asset($category->image)}}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">{{$category->name}}</h5>
-                      <a href="category/{{$category->id}}" class="btn btn-primary">Details</a>
+                      <a href="product/{{$category->id}}" class="btn btn-primary">Details</a>
                     </div>
                   </div>
                 @endforeach 

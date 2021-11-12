@@ -17,16 +17,19 @@ class CartController extends Controller
 
     public function index()
     {
-        return view('cart');
+        $carts = Cart::where('user_id','LIKE',Auth::user()->id)->get();
+        return view('/cart', compact('carts'));
     }
 
     public function store(Request $request)
     {
+        
         Cart::create([
             'user_id' => Auth::user()->id,
-            'product_id' => 'item_id',
-            'qty' => 1
+            'product_id' => $request->item_id,
+            'qty' => 1,
+            'image' => $request->image
         ]);
-        return redirect('/cart');
+        return redirect('/home');
     }
 }

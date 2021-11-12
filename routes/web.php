@@ -3,6 +3,7 @@
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -25,7 +26,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index_category'])->name('home');
 
-Route::get('/category/{id}', [ShopController::class, 'category']);
+Route::get('/product/{id}', [ShopController::class, 'category']);
 
 //Delete
 
@@ -36,4 +37,10 @@ Route::delete('/delete/{id}', [ProductController::class, 'destroy']);
 Route::get('/update/{id}', [ProductController::class, 'edit']);
 
 Route::patch('/update-product/{id}', [ProductController::class, 'update'])->name('update-keyboard');
+
+//Cart
+
+Route::get('/cart', [CartController::class, 'index']);
+
+Route::post('/cart/store', [CartController::class, 'store']);
 

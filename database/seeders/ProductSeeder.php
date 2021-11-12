@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
             'category_id' =>'1',
             'price' => '50000',
             'description' => 'best',
-            'image' => '/storage/87Keyboard.jpg'
+            'image' => '87Keyboard.jpg'
         ]);
 
         DB::table('products')->insert([
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
             'category_id' =>'1',
             'price' => '500000',
             'description' => 'top',
-            'image' => '/storage/87Keyboard.jpg'
+            'image' => '/87Keyboard.jpg'
         ]);
     }
 }

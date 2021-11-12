@@ -15,7 +15,7 @@ class ShopController extends Controller
                     ->orWhere('category_id', 'LIKE', $id)
                     ->get();
         $categories = Category::findOrFail($id);
-        return view('category', compact('categories','products'));
+        return view('product-user', compact('categories','products'));
     }
 
     public function product($id)

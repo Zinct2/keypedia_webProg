@@ -10,4 +10,10 @@ class Cart extends Model
     use HasFactory;
 
     protected $fillable = ['user_id','product_id','qty','image'];
+
+    public function products(){
+
+        return $this->belongsTo('App\Models\Product','product_id','id');
+
+    }
 }
