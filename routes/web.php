@@ -4,7 +4,12 @@ use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CartDetailController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +48,26 @@ Route::patch('/update-product/{id}', [ProductController::class, 'update'])->name
 Route::get('/cart', [CartController::class, 'index']);
 
 Route::post('/cart/store', [CartController::class, 'store']);
+
+//Detail
+
+Route::get('/detail/{id}', [DetailController::class, 'index']);
+
+//Cart Detail
+
+Route::get('/cart-detail/{id}', [CartDetailController::class, 'index']);
+
+
+//Checkout
+
+Route::post('/checkout', [CheckoutController::class, 'store']);
+
+//Transaction History
+
+Route::get('/transaction', [TransactionController::class, 'index']);
+
+//Transaction Detail
+Route::get('/transaction/detail/{id}', [TransactionController::class, 'detail']);
+
+
 

@@ -7,7 +7,7 @@
             <strong>Welcome to Keypedia</strong>
             <p>Best keyboard and Keycaps Shop</p>
 
-            <div class="item d-flex pt-3">
+            <div class="item d-flex pt-3 justify-content-evenly flex-wrap">
                 @foreach ($categories as $category)
                 <div class="card mr-5" style="width: 18rem;">
                     <img class="card-img-top" src="{{asset($category->image)}}" alt="Card image cap">

@@ -9,19 +9,13 @@
                 <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
               </div>
 
-            <div class="item d-flex pt-3">
+            <div class="item d-flex pt-3 justify-content-evenly flex-wrap">
                 @foreach ($products as $product)
                 <div class="card mr-5" style="width: 18rem;">
                     <img class="card-img-top" src="{{asset('/storage/'.$product->image)}}" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">{{$product->name}}</h5>
+                      <a href="/detail/{{$product->id}}"><h5 class="card-title">{{$product->name}}</h5></a>
                       <div class="buttons d-flex ml-4">
-                        <form action="/cart/store" method="post">
-                          @csrf
-                          <input type="hidden" name="item_id" value="{{$product->id}}">
-                          <input type="hidden" name="image" value="{{$product->image}}">
-                          <input type="submit" class="btn btn-primary" value="Add To Cart">
-                        </form>
                       </div>
                     </div>
                   </div>

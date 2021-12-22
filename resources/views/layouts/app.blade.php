@@ -61,6 +61,11 @@
                                     <a class="dropdown-item" href="/cart">
                                         My Cart
                                     </a>
+
+                                    <a class="dropdown-item" href="/transaction">
+                                        My Transactions
+                                    </a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
